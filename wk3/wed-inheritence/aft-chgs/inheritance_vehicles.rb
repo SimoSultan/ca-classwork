@@ -1,3 +1,5 @@
+# MARKED AND PASSED
+
 class Vehicle
 	
 	def initialize(make, model)
@@ -9,14 +11,14 @@ class Vehicle
 	
 	def refuel(litres)
 		if self.class == Car
-			@fuel_tank + litres > 50 ? @fuel_tank = 50 : @fuel_tank += litres
+			@fuel_tank + litres > 50 ? "Can't refuel over max capacity!" : @fuel_tank += litres
 		elsif self.class == Motorbike
-			@fuel_tank + litres > 15 ? @fuel_tank = 15 : @fuel_tank += litres
+			@fuel_tank + litres > 15 ? "Can't refuel over max capacity!": @fuel_tank += litres
 		end
 	end
 	
 	def fuel_level
-		p "#litres in tank = #{@fuel_tank}"
+		p "#{@fuel_tank}L in the tank"
 	end
 	
 end
@@ -29,7 +31,7 @@ class Car < Vehicle
 	end
 	
 	def wind_up_windows
-		p "winding up windows"	
+		p "*window noise*"
 
 	end
 	
@@ -44,7 +46,7 @@ class Motorbike < Vehicle
 	end
 	
 	def wheelie
-		p "I'm doing a wheelie."	
+		p "*wheelie noise*"	
 	end
 	
 end
