@@ -1,87 +1,86 @@
-# #CLASSES WITHOUT USER INPUT
-# # each employee is an object that is input by programmer
+#CLASSES WITHOUT USER INPUT
+# each employee is an object that is input by programmer
 
-# class Employee
+class Employee
 
-#     @@num_employees = 0
+    @@num_employees = 0
 
-#     def initialize(name, salary)
-#         @name = name
-#         @salary = salary
-#         @@num_employees += 1
-#     end
+    def initialize(name, salary)
+        @name = name
+        @salary = salary
+        @@num_employees += 1
+    end
 
-#     def self.num_of_employees()
-#         "There are #{@@num_employees} employees in total"
-#     end
+    def self.num_of_employees()
+        "There are #{@@num_employees} employees in total"
+    end
 
-#     def show_salary()
-#         "Name = #{@name} ; Salary = $#{@salary}"
-#     end
+    def show_salary()
+        "Name = #{@name} ; Salary = $#{@salary}"
+    end
 
-#     def show_all()
+    def show_all()
         
-#     end
-# end
+    end
+end
 
-# sarah = Employee.new("Sarah", "20,000")
-# ben = Employee.new("Ben", "19,000")
-# john = Employee.new("John", "19,500")
+sarah = Employee.new("Sarah", "20,000")
+ben = Employee.new("Ben", "19,000")
+john = Employee.new("John", "19,500")
 
-# p sarah.show_salary
-# p ben.show_salary
-# p john.show_salary
+p sarah.show_salary
+p ben.show_salary
+p john.show_salary
 
-# p Employee.num_of_employees
-
-
-# # CLASSES WITH USER INPUT
-# # CEO creates the list of employees
-# # CEO can ask to see the salary of an individual employee
-# # CEO can ask to see all employees and their salaries in her business
-# # CEO can ask to see how many employees she has
-
-# def class_with_user_input()
-
-#     class Business
-
-#         def initialize()
-#             @employees = {}
-#         end
-
-#         def add_employee(name, salary)
-#             @employees[name.to_sym] = salary
-#         end
-
-#         def self.num_of_employees()
-#             "There are #{@employees.length} employees in total"
-#         end
-
-#         def show_salary(name)
-#             "Name = #{name.capitalize!} ; Salary = $#{@employees[name]}"
-#         end
-
-#         def show_all()
-#             @employees.each do |k,v|
-#                 p "Name = #{k} ; Salary = $#{@employees[k]}"
-#             end
-#         end
-#     end
-
-# end
-
-# sarah = Employee.new("Sarah", "20,000")
-# ben = Employee.new("Ben", "19,000")
-# john = Employee.new("John", "19,500")
-
-# p sarah.show_salary
-# p ben.show_salary
-# p john.show_salary
-
-# p Employee.num_of_employees
+p Employee.num_of_employees
 
 
+# CLASSES WITH USER INPUT
+# CEO creates the list of employees
+# CEO can ask to see the salary of an individual employee
+# CEO can ask to see all employees and their salaries in her business
+# CEO can ask to see how many employees she has
 
+def class_with_user_input()
+
+    class Business
+
+        def initialize()
+            @employees = {}
+        end
+
+        def add_employee(name, salary)
+            @employees[name.to_sym] = salary
+        end
+
+        def self.num_of_employees()
+            "There are #{@employees.length} employees in total"
+        end
+
+        def show_salary(name)
+            "Name = #{name.capitalize!} ; Salary = $#{@employees[name]}"
+        end
+
+        def show_all()
+            @employees.each do |k,v|
+                p "Name = #{k} ; Salary = $#{@employees[k]}"
+            end
+        end
+    end
+
+end
+
+sarah = Employee.new("Sarah", "20,000")
+ben = Employee.new("Ben", "19,000")
+john = Employee.new("John", "19,500")
+
+p sarah.show_salary
+p ben.show_salary
+p john.show_salary
+
+p Employee.num_of_employees
+
+ 
 
 
 
@@ -109,7 +108,7 @@ def without_class_without_user_input()
 
     employees.each { |k,v| puts "Name = #{k.to_s.capitalize} ; Salary = $#{v}"}
     puts " "
-    
+
 end
 
 

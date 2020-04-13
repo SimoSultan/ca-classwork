@@ -1,8 +1,6 @@
 def main()
     # 	Create an app that lets a user look after a virtual plant.
-    
     # The user should be able to do one action per day (where each cyle of a game loop is one day)…
-    
     # name or rename the plant
     # sing to the plant to increase its happiness
     # feed the plant to decrease its hunger
@@ -19,6 +17,8 @@ def main()
     # bug count
     # Remember to use global variables to let the functions modify the variable values!
         
+
+    # THIS IS PRACTICALLY THE SAME AS MY CAFE APP IN THE AFT CHG FOLDER, IF I HAVE SPARE TIME I WILL COME BACK TO DO THIS
         
     end
     
