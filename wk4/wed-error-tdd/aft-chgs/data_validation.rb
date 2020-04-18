@@ -1,4 +1,4 @@
-class Dog
+ class Dog
     attr_reader :name, :weight
     
     def initialize(name, weight)
