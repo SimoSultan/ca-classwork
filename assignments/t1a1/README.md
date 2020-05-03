@@ -259,8 +259,11 @@ Python is a simple, versatile and a complete programming language. It is a great
 ## Q13:
 
 ## Q14:
-- Part i. Flowcharts  
-![flowchart]()
+- i  
+For this part, my flowchart can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/q14_flowchart.jpg).  
+
+- ii  
+
 
 
 
