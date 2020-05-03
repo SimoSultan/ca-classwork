@@ -287,6 +287,14 @@ For this part, my flowchart can be found [here](https://github.com/SimoSultan/ca
 # end
 ```
 
+## Q15:
+
+My Ruby code that solves the problem can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q15_code.rb)
+
+
+## Q16:
+
+
 
 
 
