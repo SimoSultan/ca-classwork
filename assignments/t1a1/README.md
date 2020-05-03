@@ -294,6 +294,8 @@ My Ruby code that solves the problem can be found [here](https://github.com/Simo
 
 ## Q16:
 
+My Ruby code that solves the problem can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q16_code.rb)
+
 
 
 
