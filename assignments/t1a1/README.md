@@ -255,15 +255,37 @@ Python is a simple, versatile and a complete programming language. It is a great
 ## Q11:
 
 ## Q12:
+The reason this code isn't working is due to the first line. In Ruby, the 'gets' method returns a string, even if a number is inputted, it will still be a string. Then on line 2, we multiply the string 9 times, then try to divide a string by 5. Which is why the NoMethodError error occurs, as there is not String method matching '/'. To fix the error, we need to convert the string to an integer (using to_i) so that the rest of the code will run. As a bonus, I have cleaned the code up as well, all code can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q12_code.rb)
 
 ## Q13:
+The reason this code wasn't working correctly was due to the assigning the arr[i+1] variable into arr[i]. Then assigning arr[i], the one you just overwrote, into arr[i+1]. Which results in the original arr[i+1] variable being assigned into both arr[i] and arr[i+1]. So to fix this, I assigned each of the 2 variables that need to be swapped into an external variable to be placed back inside the original arr. This code can be seen [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q13_code.rb)
+```
+x = arr[i]
+y = arr[i+1]
+arr[i] = y
+arr[i+1] = x
+```
+I have rewritten the entire code to continue until all elements in the array are sorted, using recursion. Just for something extra. Can also be seen in the link provided.
 
 ## Q14:
 - i  
-For this part, my flowchart can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/q14_flowchart.jpg).  
+For this part, my flowchart can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q14_flowchart.jpg).  
 
 - ii  
+```ruby
+# create a function to determine if a number is prime or not
+  # if number is 2, return true, 2 id special as it is even and prime
+  # if number is even return false, even numbers aren't prime
+  # if number is less than or equal to 1, special case not prime
+  # find the square root of the number and floor it
+  # test all odd numbers between 3 and the square to see if it is passed in number is divisible by that number
+  # if the modulo of those numbers are 0, then the number is not a prime
+# end
 
+# run loop from 1 to 100
+  # test if each number is prime, if it is, print the number
+# end
+```
 
 
 
