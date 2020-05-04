@@ -247,12 +247,73 @@ Python is a simple, versatile and a complete programming language. It is a great
 ## Q7:
 
 ## Q8:
+<!-- Explain control flow, using an example from the Ruby programming language -->
+Control flow is a fundamental part of most programming languages. It is also fundamental to our human nature as well. Let me explain. Control flow can best be described in a programming language as an if/else block of code. For e.g.
+```ruby
+if youre_hungry
+  "go eat"
+else
+  "don't eat"
+end
+```
+As we can see, this block of code can also represent our decisions throughout our day to day life. And by using this in our program, we can control the flow of execution. This can be seen on a lot of programs where you are required to log in. If you are logged in, you get to use the program/website, if not, then display the log in page. We can express this control flow a few different ways, and for this explanation, we will use Ruby as our guide for keywords. In addition to if/else, we can also include if/elsif/else, or a case/when statement, and if our control flow block of code is fairly short, we can express it as a ternary operator. These methods are all variations to the original if/else, and can each be used, but sometimes a specific variation may be better for code readability in that situation. Examples can be seen below.
+
+```ruby
+# our code above can be expressed in a ternary operator for clean clode
+youre_hungry ? "go eat" : "don't eat"
+
+# but if you have more conditions we can use the
+# if elsif else code block
+if youre_tired
+  "go sleep"
+elsif youre_exhausted
+  "lie down and rest"
+else   
+  "carry on"
+end
+
+# which can also be written using a case when statement
+# where tiredness is the variable we are looking at, which can be either youre_tired or youre_exhausted
+case tiredness
+when youre_tired
+  "go sleep"
+when youre_exhausted
+  "lie down and rest"
+else
+  # this is our default situation when no condition above is met
+  "carry on"
+end
+
+```
 
 ## Q9:
+
+Type coercion is the process of converting value from one type to another (such as string to number, object to boolean, and so on). Any type, be it primitive or an object, is a valid subject for type coercion.
+
+THe different types of coercion.
+Implicit vs. explicit coercion
+Type coercion can be explicit and implicit.
+
+When a developer expresses the intention to convert between types by writing the appropriate code, like Number(value), it’s called explicit type coercion (or type casting).
+
+Since JavaScript is a weakly-typed language, values can also be converted between different types automatically, and it is called implicit type coercion. It usually happens when you apply operators to values of different types, like
+1 == null, 2/’5', null + new Date(), or it can be triggered by the surrounding context, like with if (value) {…}, where value is coerced to boolean.
+
+One operator that does not trigger implicit type coercion is ===, which is called the strict equality operator. The loose equality operator == on the other hand does both comparison and type coercion if needed.
+
+Implicit type coercion is a double edge sword: it’s a great source of frustration and defects, but also a useful mechanism that allows us to write less code without losing the readability.
+[freeCodeCamp](https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/)
+
+In Ruby,
+The most common casting helpers are #to_s, #to_i, #to_a and #to_h. These are explicit casting methods. They help us easily transform a value from one type to another.
+
+The explicit helpers come with a clear promise. Whenever #to_s is called on an object, it’ll always return a string, even if the object doesn’t really convert to a string wel
 
 ## Q10:
 
 ## Q11:
+
+
 
 ## Q12:
 The reason this code isn't working is due to the first line. In Ruby, the 'gets' method returns a string, even if a number is inputted, it will still be a string. Then on line 2, we multiply the string 9 times, then try to divide a string by 5. Which is why the NoMethodError error occurs, as there is not String method matching '/'. To fix the error, we need to convert the string to an integer (using to_i) so that the rest of the code will run. As a bonus, I have cleaned the code up as well, all code can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q12_code.rb)
@@ -289,12 +350,12 @@ For this part, my flowchart can be found [here](https://github.com/SimoSultan/ca
 
 ## Q15:
 
-My Ruby code that solves the problem can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q15_code.rb)
+My Ruby code that solves the problem can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q15_code.rb).
 
 
 ## Q16:
 
-My Ruby code that solves the problem can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q16_code.rb)
+My Ruby code that solves the problem can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q16_code.rb).
 
 
 
