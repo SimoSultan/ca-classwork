@@ -246,6 +246,21 @@ Python is a simple, versatile and a complete programming language. It is a great
 
 ## Q7:
 
+"With great power, comes great responsibility." Uncle Ben. He was dead on the money. Because in the land of Software and IT, a lot of people have access to a lot of data, and have the skills enabling us to do a lot of damage with that data. Unfortunately, some people do use this power to cross that ethical line, however, a large amount, don't. Some typical ethical issues facing IT professionals are;
+- Access to a User’s Personal Information
+- Criminal Acts
+
+Discussing these topics a little more.
+1. **Personal Information**. For example, software companies can have access to information such as; medical, family, financial, personal attributes such as sexuality, religion, or beliefs. 
+
+2. **Criminality**. These issues arise through events such as theft, fraud, trafficking and distribution of prohibited substances, terrorism
+
+
+
+
+
+
+
 ## Q8:
 <!-- Explain control flow, using an example from the Ruby programming language -->
 Control flow is a fundamental part of most programming languages. It is also fundamental to our human nature as well. Let me explain. Control flow can best be described in a programming language as an if/else block of code. For e.g.
