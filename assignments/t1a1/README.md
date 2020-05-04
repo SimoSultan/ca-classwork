@@ -313,7 +313,15 @@ The explicit helpers come with a clear promise. Whenever #to_s is called on an o
 
 ## Q11:
 
-
+If the staff just quit, we would need an app where the user can see all our available food and prices, be able to select an item from the menu, add the qty of the item, see their selected items in a cart, and be able to checkout. This would cover the basis of our app to make an MVP. Which means the classes we would need are; Menu, Food, Drink, \*Item\*, Cart, Business, User and View.
+- Menu will display what we have.
+- Food can have a quantity method
+- Drink to cover our menu of drinks
+- \*Item\* will be a sub-class which inherits from Food and Drink
+- User to store user information
+- Cart will be a sub-class of User and will store the user's selection
+- Business will store information about the business
+- and View will hold a lot of methods to display the information
 
 ## Q12:
 The reason this code isn't working is due to the first line. In Ruby, the 'gets' method returns a string, even if a number is inputted, it will still be a string. Then on line 2, we multiply the string 9 times, then try to divide a string by 5. Which is why the NoMethodError error occurs, as there is not String method matching '/'. To fix the error, we need to convert the string to an integer (using to_i) so that the rest of the code will run. As a bonus, I have cleaned the code up as well, all code can be found [here](https://github.com/SimoSultan/ca-classwork/blob/master/assignments/t1a1/docs/q12_code.rb)
