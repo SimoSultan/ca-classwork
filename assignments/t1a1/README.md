@@ -246,19 +246,35 @@ Python is a simple, versatile and a complete programming language. It is a great
 
 ## Q7:
 
-"With great power, comes great responsibility." Uncle Ben. He was dead on the money. Because in the land of Software and IT, a lot of people have access to a lot of data, and have the skills enabling us to do a lot of damage with that data. Unfortunately, some people do use this power to cross that ethical line, however, a large amount, don't. Some typical ethical issues facing IT professionals are;
+"With great power, comes great responsibility." Uncle Ben. He was dead on the money. Because in the land of Software and IT, professionals in these areas have access to a great deal of data, and the skills to cause damage with it. Unfortunately, some people do use this power to cross that ethical line, however, a large amount, don't. Some typical ethical issues facing IT professionals are;
 - Access to a User’s Personal Information
+  - ie. medical, family, financial and personal attributes such as sexuality, religion, or beliefs.
 - Criminal Acts
 
-Discussing these topics a little more.
-1. **Personal Information**. For example, software companies can have access to information such as; medical, family, financial, personal attributes such as sexuality, religion, or beliefs. 
+Where:
+1. **Personal Information**  
+    One way to approach this topic is discuss the responsibility due to respecting another person's information. Meaning, to talk about this topic, means to talk about Edward Snowden. An American whistleblower who copied and leaked highly classified information from the National Security Agency when he was an employee and subcontractor for the CIA. Here is someone who found his employer to be doing something ethically wrong with personal information, and wanting to share it with the world, he himself breaking laws and disrespecting the privacy of the company.
 
-2. **Criminality**. These issues arise through events such as theft, fraud, trafficking and distribution of prohibited substances, terrorism
+    In the process, violating the Espionage Act of 1917 and theft of government property. I want to leave the reader with an open ended questions here. Does a law, written in 1917, extend to protect someone 90+ years later, in a world that never existed back when it was written. Are all our laws updated to respect the privacy (i.e. digital and physical) for the person's whose information it is, and the person who has access to that person's information?!
+
+    As an IT professional, do we have a moral obligation to turn the employer in, or are we ethically bound to respect our employer's privacy?! Does it make a difference if we sign a non-disclosure agreement when accepting the job?! There is no extent to this topic, as it is best left up to the reader, or the person who unfortunately may experience this.
+
+2. **Criminality**   
+    On the other hand, a developer with sinister inhibitions, can use this information and/or skills for personal gain through events such as theft, fraud, trafficking and distribution of prohibited substances or terrorism. In August last year, this exact situation happened. Capitol One Bank in America suffered a massive data breach, where the personal and financial data of more than 100 million customers was exposed. The hacker responsible, worked at Amazon, and wrote a program to scan for customers with a firewall misconfiguration who use Amazon Web Services. It was noted that Amazon didn't lend her any insider access, however working for Amazon would provide the hacker with a specific skillset that closely relate to those services. The hacker was charged with two criminal counts, wire fraud and computer fraud and abuse. [Wired](https://www.wired.com/story/capital-one-paige-thompson-case-hacking-spree/).   
+    These 2 laws in America help a developer to act ethically by discouraging the developer to act unlawfully for personal gain. 
+
+    Also, one does not talk about ethics and software without mentioning the GDPR. The General Data Protection Regulation is a modernisation of laws across Europe to help protect the personal information of individuals. This is a framework for companies and developers to implement into their business to help protect its customer base. This assists professionals to act ethically by ensuring the mindset of privacy first when developing software that collects data. This data is pseudonymized from the beginning so that it generally is an indirect connection between the data and an individual.
 
 
+  3. **Case Study**  
+  This is the case study
 
 
+<!-- We found company A doesn't adhere to ethical issue B because of actions/evidence C, my recommendation to prevent that from happening again is D.  -->
 
+<!-- You can & should lean on existing sources of info or evidence about an ethical breach rather than just make up your own assumptions of a company's ethical breach. Find articles, news, etc. As an example, most companies release their own blog post if their user data or passwords get stolen - that's a perfect source as it would usually cover why their data was vulnerable & how they're going to prevent theft in future. 
+
+Your case study would be discussing what the ethical breach was in that scenario, how it happened, if the company's recommendations (if they exist) to prevent it in future are valid, and provide your own recommendations to prevent that ethical breach in future as well. -->
 
 
 ## Q8:
