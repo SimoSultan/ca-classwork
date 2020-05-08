@@ -27,7 +27,7 @@ class Main
       "[Q] Quit program",
     ]
 
-    @score = 0
+    @max_score = 255
     @running = true
   end
 
@@ -37,6 +37,8 @@ end # of class
 
 def main()
 
+  # create Main program
+  # get initialized info
   program = Main.new()
   allergies = program.allergies
   menu = program.menu
@@ -44,6 +46,8 @@ def main()
   running = program.running
 
 
+  # use a loop to for the program
+  # show menu and get users selection 
   while running
     running = display_menu(menu)
     resp = get_users_option()
@@ -72,7 +76,7 @@ def main()
 end
 
 
-
+# display the header on each screen
 def display_header()
   system "clear"
   header_str = "Welcome to Simo_Sultan's Allergy Checker Program"
@@ -86,7 +90,7 @@ def display_header()
 end
 
 
-
+# displays the menu
 def display_menu(menu)
   display_header()
   puts "Please choose an option below"
@@ -98,7 +102,7 @@ def display_menu(menu)
 end
 
 
-
+# teaches user how to use the program
 def how_to_use_program()
   display_header()
   puts "Hi, we are testing a program where we are trying to determine if our subject Tom has an allergy to a given item, or what allergies he can have with a given score."
@@ -108,8 +112,8 @@ end
 
 
 
+ # show all allergies and their scores as a list
 def show_all_allergies_and_scores(allergies)
-  # show all allergies as a list
   puts
   allergies.each do |alrg, score|
     puts " - #{alrg.capitalize} has a score of: #{score}"
@@ -117,7 +121,7 @@ def show_all_allergies_and_scores(allergies)
 end
 
 
-
+# show a list of just allergy names
 def show_allergy_names(allergies)
   str = ""
   allergies.each{|k,v| str += k.to_s + ', '}
@@ -125,25 +129,15 @@ def show_allergy_names(allergies)
 end
 
 
-
+# check what the score is of an allergy
 def check_allergy_score(allergies)
   allergy = get_user_requested_allergy(allergies)
-  if !allergies.key?(allergy.to_sym)
-    puts
-    puts "Sorry that is not a valid entry"
-    puts "Please try again"
-    press_any_key()
-    check_allergy_score(allergies)
-  end
-
-  return if !allergies.key?(allergy.to_sym)
-
   puts
   puts "#{allergy.capitalize} has a score of: #{allergies[allergy.to_sym]}"
 end
 
 
-
+# determine allergy with highest score for a user submitted score
 def what_is_worst_allergy(allergies)
   score = get_user_requested_score()
   allergy = ""
@@ -159,77 +153,98 @@ def what_is_worst_allergy(allergies)
 end
 
 
-
+# display the exact list of allergies Tom has for a user submitted score
 def display_all_possible_allergies(allergies)
   # get user selected score
-  # remove any allergies that have a score larger than the one given
   # iterate over the hash to find if a combination of allergies exist
-  # assume that if the requested score must be a valid sum of allergy scores
-  # i.e. if there is a remainder left over, then that combination of allergies can't exist
   # e.g. score = 9, list = eggs(1) + strawberries(8) is the only combination of allergies
   score = get_user_requested_score()
   arr_list = get_combination_of_allergies_from_score(score, allergies)
 
-
   if arr_list.empty?
     puts
     puts "Thankfully, Tom has no allergies for that score"
-    return "empty"
   else
     puts
-    puts "Poor old Tom can have a combination of some, but not all, of these allergies..."
-    # puts str.delete_suffix(', ')
-    return "something here"
-
+    puts "Poor old Tom has allergies to these items:"
+    arr_list.reverse.each {|allergy| (puts " - #{allergy}")}
   end
 
 end
 
 
-
+# function that gets the list of allergies for a score and returns to the print function above
 def get_combination_of_allergies_from_score(score, allergies)
 
   arr = []
-  # reduced_allergies = allergies.select {|k,v| v <= score}
+  sum = 0
+  # remove any allergies that have a score larger than the one given
+  reduced_allergies = allergies.select {|k,v| v <= score}
 
-  # need 2 loops
-  # in first loop, start with first value, and remove it from reduced_allergies
-  # use its value to run through the remaining allergies in temp_reduced to find a combination
-
-  # reduced_allergies.map do |key,val|
-  # end
-  if score 0
-    return arr
-  else
-    return ["eggs"]
+  # reverse the hash to start with largest number first to possibly reduce iterations
+  reversed_reduced = reduced_allergies.to_a.reverse.to_h
+  reversed_reduced.each do |key, val|
+    sum += val
+    if sum == score
+      # found the correct list and return it
+      return arr.push(key.to_s)      
+    elsif sum < score
+      # still haven't found entire list, add this allergy and move to next
+      arr.push(key.to_s)
+      next
+    elsif sum > score
+      # the score is too high, so skip this allergy
+      sum -= val
+      next
+    end
   end
-
 end
 
 
 
 
+# get the allergy a user wants to know more info about
 def get_user_requested_allergy(allergies)
-  display_header()
-  puts "What allergy would you like to check?"
-  puts
-  puts show_allergy_names(allergies)
-  print "=> "; allergy = gets.strip.downcase
+
+  begin
+    display_header()
+    puts "What allergy would you like to check?"
+    puts
+    puts show_allergy_names(allergies)
+    print "=> "; allergy = gets.strip.downcase
+    raise StandardError.new("Error: Sorry, either that allergy does not exist or spelling may be incorrect.\nPlease try again.") if !allergies.key?(allergy.to_sym)
+  rescue => exception
+    puts
+    puts exception.message
+    press_any_key()
+    retry
+  end
+
   return allergy
 end
 
 
-
+# get the allergy's score a user wants to know more info about
 def get_user_requested_score()
-  display_header()
-  puts
-  puts "What is the score you want to check?"
-  print "=> "; score = gets.strip.to_i
+  begin
+    display_header()
+    puts
+    puts "What is the score you want to check? (1->255)"
+    print "=> "; score = gets.strip.to_i
+    if score < 1 || score > 255
+      raise StandardError.new("Error: Only a valid score between 1 and 255 can be accepted.\nIf score = 0, Tom would have no allergies, and the max score of allergies can only be 255.\nPlease try again.")
+    end
+  rescue => exception
+    puts
+    puts exception.message
+    press_any_key()
+    retry
+  end
   return score
 end
 
 
-
+# quit the program
 def quit()
   puts 
   puts "Thanks for using the program"
@@ -239,7 +254,7 @@ def quit()
 end
 
 
-
+# pauses the loop until user presses a key
 def press_any_key()
   puts
   puts "Press any key to continue"
@@ -247,12 +262,15 @@ def press_any_key()
 end
 
 
-
+# gets the users option from the main menu
+# error handling is handled in the while loop in main()
 def get_users_option()
   print "=> "; resp = gets.strip
   return resp
 end
 
+
+# run the program
 main()
 
 
