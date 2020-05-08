@@ -1,30 +1,48 @@
 require 'io/console'
 $terminal_width = IO.console.winsize[1] ## this gets the width of the terminal
 
+class Main
+
+  attr_reader :allergies, :menu, :score, :running
+
+  def initialize()
+
+    @allergies = {
+      eggs: 1,
+      peanuts: 2,
+      shellfish: 4,
+      strawberries: 8,
+      tomatoes: 16,
+      chocolate: 32,
+      pollen: 64,
+      cats: 128,
+    }
+
+    @menu = [
+      "[1] How to use the program",
+      "[2] Show all allergies",
+      "[3] Check an allergies score",
+      "[4] Find worst possible allergy for given score",
+      "[5] Find all possible allergies for given score",
+      "[Q] Quit program",
+    ]
+
+    @score = 0
+    @running = true
+  end
+
+end # of class
+
+
+
 def main()
 
-  allergies = {
-    eggs: 1,
-    peanuts: 2,
-    shellfish: 4,
-    strawberries: 8,
-    tomatoes: 16,
-    chocolate: 32,
-    pollen: 64,
-    cats: 128,
-  }
+  program = Main.new()
+  allergies = program.allergies
+  menu = program.menu
+  score = program.score
+  running = program.running
 
-  menu = [
-    "[1] How to use the program",
-    "[2] Show all allergies",
-    "[3] Check an allergies score",
-    "[4] Find worst possible allergy for given score",
-    "[5] Find all possible allergies for given score",
-    "[Q] Quit program",
-  ]
-
-  score = 0
-  running = true
 
   while running
     running = display_menu(menu)
@@ -51,9 +69,7 @@ def main()
     press_any_key()
     running = true
   end
-
 end
-
 
 
 
@@ -145,20 +161,51 @@ end
 
 
 def display_all_possible_allergies(allergies)
+  # get user selected score
+  # remove any allergies that have a score larger than the one given
+  # iterate over the hash to find if a combination of allergies exist
+  # assume that if the requested score must be a valid sum of allergy scores
+  # i.e. if there is a remainder left over, then that combination of allergies can't exist
+  # e.g. score = 9, list = eggs(1) + strawberries(8) is the only combination of allergies
   score = get_user_requested_score()
-  str = ""
-  allergies.each do |k,v|
-    (str += k.to_s.capitalize + ', ') if v <= score
-  end
-  if str.empty?
+  arr_list = get_combination_of_allergies_from_score(score, allergies)
+
+
+  if arr_list.empty?
     puts
-    puts "Thanlfully, Tom has no allergies for that score"
+    puts "Thankfully, Tom has no allergies for that score"
+    return "empty"
   else
     puts
     puts "Poor old Tom can have a combination of some, but not all, of these allergies..."
-    puts str.delete_suffix(', ')
+    # puts str.delete_suffix(', ')
+    return "something here"
+
   end
+
 end
+
+
+
+def get_combination_of_allergies_from_score(score, allergies)
+
+  arr = []
+  # reduced_allergies = allergies.select {|k,v| v <= score}
+
+  # need 2 loops
+  # in first loop, start with first value, and remove it from reduced_allergies
+  # use its value to run through the remaining allergies in temp_reduced to find a combination
+
+  # reduced_allergies.map do |key,val|
+  # end
+  if score 0
+    return arr
+  else
+    return ["eggs"]
+  end
+
+end
+
 
 
 
@@ -206,7 +253,8 @@ def get_users_option()
   return resp
 end
 
-
-
-
 main()
+
+
+
+

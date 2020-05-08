@@ -1,0 +1,150 @@
+@import url(http://fonts.googleapis.com/css?family=Lato|Bree+Serif);
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: Helvetica, sans-serif;
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#header-content {
+  display: block;
+  background: white;
+  height: 30px;
+  line-height: 29px;
+}
+
+#header-img {
+  width: 10px;
+  float: left;
+}
+
+#header-content div {
+  margin-right: 10px;
+}
+
+.header-links {
+  float: right;
+  margin: 0 10px;
+}
+
+.header-links a {
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+#hero-content {
+  background: url(../images/zebra-hero.jpg) no-repeat center fixed;
+  background-size: cover;
+  height: fit-content;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+#hero-content > * {
+  display: block
+}
+
+#hero-img {
+  width: 50px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.hero-header {
+  color: white;
+  font-size: 1.8em;
+}
+
+.hero-button {
+  color: white;
+  background: none;
+  border: 1px solid white;
+  padding: 2px 9px;
+  margin: 7px 0 25px 0;
+}
+
+#main-content h2 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin: 20px 0 15px 0;
+  background-color: white;
+}
+
+
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  text-align: center;
+}
+
+.column img {
+  width: 200px;
+  border: 3px solid #8a80c2;
+  border-radius: 50%;
+}
+
+.column-header {
+  color: #8a80c2;
+  margin: 10px 0 10px 0;
+  font-size: 0.9em;
+}
+
+.column-text {
+  margin: 0 auto;
+  font-size: 0.6em;
+  width: 90%;
+}
+
+.column-button {
+  color: #8a80c2;
+  border: 1px solid #8a80c2;
+  background: none;
+  padding: 4px 9px;
+  margin: 10px 0 20px 0;
+}
+
+
+#social-links {
+  background-color:#8a80c2;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-flow: column;
+}
+
+#social-links p {
+  display: block;
+  margin: 10px 0;
+  font-size: 0.6em;
+}
+
+.social-icons {
+  display: block;
+  margin: 5px 0 20px 0;
+}
+
+.social-icons img {
+  height: 25px;
+  line-height: 10%;
+  margin: 0 10px;
+}
+
+footer {
+  display: flex;
+  justify-content:center;
+  margin-top: 5px;
+  height: 50px;
+  font-size: 0.7em;
+}
