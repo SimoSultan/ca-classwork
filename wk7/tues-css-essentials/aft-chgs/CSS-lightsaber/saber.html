@@ -4,22 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="saber.css">
+  <script src="script.js"></script>
   <title>Lightsaber</title>
 </head>
 <body>
   <div class="spacer">
   </div>
 
-  <div class="whole-saber">
-    <div class="hilt">
-      <div class="hilt-grip"></div>
-      <div class="hilt-grip"></div>
-      <div class="hilt-grip"></div>
+  <audio>
+    <source id="saberOn" src="audio/SaberOn.mp3"></source>
+    <source id="saberOff" src="audio/SaberOff.mp3"></source>
+    Your browser isn't invited for super fun audio time.
+  </audio>
+
+  <div id="whole-saber" class="whole-saber">
+    <div id="hilt" class="hilt">
+      <!-- <div class="hilt-grip"></div> -->
+      <!-- <div class="hilt-grip"></div> -->
+      <!-- <div class="hilt-grip"></div> -->
+      <div id="blade1" class="saber"></div>
+      <!-- <div id="blade2" class="saber"></div> -->
       <div class="hilt-button"></div>
     </div>
   
-    <div class="blade"></div>
+
   </div>
 
+
+  <!-- <script src="https://code.jquery.com/jquery-latest.min.js"></script> -->
 </body>
 </html>

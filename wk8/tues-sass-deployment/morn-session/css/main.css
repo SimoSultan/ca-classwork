@@ -1,0 +1,44 @@
+p {
+  color: green;
+}
+
+body {
+  text-align: center;
+}
+
+header {
+  padding: 30px;
+  text-align: center;
+  font-size: 10px;
+}
+
+footer {
+  padding: 10px;
+  text-align: center;
+  font-size: 40px;
+}
+
+body {
+  font-size: 20px;
+}
+
+section {
+  background-color: grey;
+}
+
+section h1 {
+  font-size: 60px;
+}
+
+section h1:hover {
+  color: green;
+}
+
+section p {
+  font-style: italic;
+}
+
+section p span {
+  color: red;
+}
+/*# sourceMappingURL=main.css.map */

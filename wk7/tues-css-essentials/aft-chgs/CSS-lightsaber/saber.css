@@ -4,27 +4,27 @@
 }
 
 .hilt {
-  display: inline-block;
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+
   width: 75px;
   height: 30px;
   background-color: grey;
   z-index: 2;
-  /* justify-content: center; */
   align-content: center;
-  /* flex-direction: column; */
   border-radius: 4px;
-  display: flex;
 }
 
 .hilt-button {
-  width: 8px;
+  justify-items: center;
+  align-items: center;
+
+  width: 15px;
   height: 8px;
-  border-radius: 4px;
-  background-color: black;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-content: center;
+  z-index: 3;
+  border-radius: 2px;
+  background-color: darkslategrey;
+  grid-column-start: 2;
   margin: 5px;
 }
 
@@ -37,30 +37,45 @@
   margin: 2px;
 }
 
-.blade {
+.saber {
   height: 25px;
   background-color: #ff3b3b91;
   box-shadow: 0 0 6px 5px red inset;
-  width: 30px;
-  display: inline-block;
   border-radius: 20px;
   z-index: 1;
-  /* justify-content: center; */
-  /* align-content: center; */
-  /* flex-direction: column; */
-  transform: translate(-40px, 0);
+  transition: width 0.3s ease;
   margin: 2px;
-  transition: width 0.5s ease;
-}
-
-
-.whole-saber:hover .blade {
-  
+  /* width: 30px; */
   width: 450px;
 }
 
+#blade1 {
+  display: grid;
+  justify-items: start;
+  align-items: center;
+  grid-column-start: 2;
+  transform: translate(40px, 0);
+}
+
+#blade2 {
+  grid-row-start: 3;
+  display: none;
+  /* transform: translate(-776px, 0); */
+}
+
+
+.hilt:hover #blade1, .hilt:hover #blade2  {
+  display: inline-block;
+  box-shadow: 0 0 6px 5px red inset, 6px 1px 10px -2px red;
+  width: 450px;
+}
+
+/* .whole-saber:hover #blade2 {
+  display: inline-block;
+} */
+
 
 .whole-saber {
-  display: flex;
-  margin: 100px 0 0 100px;
+  height: fit-content;
+  margin: 20% 0 0 40%;
 }

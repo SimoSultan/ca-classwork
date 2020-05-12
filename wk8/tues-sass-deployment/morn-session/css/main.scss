@@ -1,0 +1,39 @@
+@import 'home';
+@import 'variable';
+@mixin main-background ($padding, $font-size){
+  padding: $padding;
+  text-align: center;
+  font-size: $font-size;
+}
+
+header {
+  @include main-background(30px, 10px);
+}
+
+footer {
+  @include main-background(10px, 40px);
+}
+
+
+body {
+  font-size: 20px;
+}
+
+section {
+  background-color: $section-bkgd-color;
+
+  h1 {
+    font-size: 60px;
+    &:hover {
+      color: $hover-color;
+    }
+  }
+
+  p {
+    font-style: italic;
+    span {
+      color: $accent-color;
+    }
+  }
+}
+
