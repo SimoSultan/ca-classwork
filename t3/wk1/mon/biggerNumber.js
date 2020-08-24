@@ -1,7 +1,3 @@
-// largestNumber = (num1, num2) ==> {
-//   num = num1 < num2 ? num2 : num1;
-//   return num
-// }
 
 function largest_number(num1, num2) {
 
