@@ -3,7 +3,6 @@
 // Individual words should have two spaces between them.
 // Yes, vapor text is just unnecessarily-spaced text.
 toVaporwave = (str) => {
-  // console.log(str.split('').map(x => x.trim()).join(' '))
   return str.split('').map(x => x.trim()).join(' ')
 }
 
