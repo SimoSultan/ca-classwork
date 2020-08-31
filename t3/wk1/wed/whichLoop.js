@@ -2,9 +2,10 @@ function whatDoingToday(day){
 
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-  if (typeof(day) != "String") {
-    day = days[day-1]
-  }
+  // if (typeof(day) != "String") {
+  //   day = days[day-1]
+  // }
+  day = days[day-1]
 
   switch (day) {
     case "Monday":
@@ -15,7 +16,7 @@ function whatDoingToday(day){
     case "Friday":
       return "Reviewing lessons from the week";
     case "Saturday":
-    case"Sunday":
+    case "Sunday":
       return "It is the weekend!";
     default:
       return "That is not a valid day";
@@ -23,7 +24,7 @@ function whatDoingToday(day){
 
 }
 // What day is it today?
-let day = new Date().getDay();
+let day = new Date().getDay(); // 0 - 6
 console.log(whatDoingToday(day))
 
 module.exports = {whatDoingToday}
