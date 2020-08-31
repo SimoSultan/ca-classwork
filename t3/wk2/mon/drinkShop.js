@@ -92,8 +92,8 @@ const shop = {
     // E.g. 10 Amelia St, Sydney, 2000
     // Hint: some destructuring might save you a few lines.
 
-    let { customers: { [email]: { address: { streetNumber, street, city, postcode } } } } = drinkShop
-
+    // let { customers: { [email]: { address: { streetNumber, street, city, postcode } } } } = drinkShop
+    let {streetNumber, street, city, postcode} = drinkShop.customers[email].address
     return `${streetNumber} ${street}, ${city}, ${postcode}`
   },
 
