@@ -4,25 +4,31 @@ class Person {
 
   constructor(name, city) {
     this.name = name
-    // this._city = city
-    this.city = city
-    ++Person.count
+    this._city = city
+    // this.city = city
+    Person.count++
   }
 
   aboutPerson() {
     console.log('');
     return `Person's name is ${this.name} and they are from ${this._city}`
+    // return `Person's name is ${this.name} and they are from ${this.city}`
   }
 
-  // get city() {
-  //   console.log('');
-  //   return `this gets called when we call the property of the object`
-  // }
+  get city() {
+    console.log('');
+    return `this gets called when we call the property of the object`
+  }
+
+  // set city() {
+
+  }
 
   // ignore this
   // getCity() {
   //   console.log('');
-  //   return `this gets called when we call the property of the object`
+  //   return `getCity string ${this.city}`
+  //   // return `getCity string`
   // }
 
   speak() {
@@ -42,7 +48,7 @@ class Teacher extends Person {
   constructor(name, city, classesTeaching) {
     super(name,city)
     this.classesTeaching = classesTeaching
-    ++Teacher.count
+    Teacher.count++
   }
 
   aboutPerson() {
@@ -51,9 +57,9 @@ class Teacher extends Person {
   }
 
   // ignore this
-  // test() {
-  //   console.log(`person inside teacher ${Person.count}`);
-  // }
+  test() {
+    console.log(`person inside teacher ${Person.count}`);
+  }
 
 }
 
@@ -66,7 +72,7 @@ class Student extends Person {
   constructor(name, city, classesStudying) {
     super(name, city)
     this.classesStudying = classesStudying
-    ++Student.count
+    Student.count++
   }
 
   aboutPerson() {
@@ -81,19 +87,19 @@ class Student extends Person {
 
 }
 
-let bob = new Teacher("Flitwick", "Smallpersonsville", "Charms")
+let flitwick = new Teacher("Flitwick", "Smallpersonsville", "Charms")
 let harry = new Student("Harry", "London", "Defence Against the Dark Arts")
 
-console.log(bob.aboutPerson());
+console.log(flitwick.aboutPerson());
 console.log(harry.aboutPerson());
-// console.log(harry.getCity());
-console.log(harry.city);
+console.log(harry.getCity());
+// console.log(harry.city);
 console.log(harry.speak());
 
-console.log(bob);
+console.log(flitwick);
 console.log(harry);
 
-bob.test()
+flitwick.test()
 
 console.log(`Person count is ${Person.count}`);
 console.log(`Teacher count is ${Teacher.count}`);
