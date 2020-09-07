@@ -13,6 +13,13 @@ class SaveData {
   get money () {
     // return (this._money == undefined) ? ("Character does not have any money") : this._money
     return this._money
+    if (condition) {
+      if (condition) {
+        if (condition) {
+          
+        }
+      }
+    }
   }
 
 
