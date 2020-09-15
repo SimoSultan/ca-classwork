@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <!-- Bootstrap CDN --->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' crossorigin='anonymous'>
+    <script  src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
+    <script  src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>
+    <script  src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV' crossorigin='anonymous'></script>
+    
+    <!-- Axios CDN --->
+    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
+    
+    <title>Random Pokemon</title>
+
+</head>
+<body>
+
+    <div class="container">
+      <button type="button" id="button" class="btn btn-primary mt-5">Encounter a Pokemon!</button>
+      <button type="button" id="button-team" class="btn btn-primary mt-5">Grab a Random Team!</button>
+    </div>
+
+    <div id="cont-1" class="container mt-5 row"></div>
+    <div id="cont-2" class="container row mt-5"></div>
+
+
+
+    <script>
+
+        document.getElementById('button').addEventListener('click', () => {
+          getRandomPokemonTeam(1)
+        })
+        document.getElementById('button-team').addEventListener('click', () => {
+          getRandomPokemonTeam(6)
+        })
+
+        function getRandomNumberForPokeAPI(){
+            // The "808" is just a safe maximum for how many Pokemon are currently in the API.
+            // When they add more Pokemon, that number should go up.
+            // Some newer Pokemon (numbers 808 and above) might be missing some data - 
+            // if that's the case, just change this number back to 808 instead of 894.
+            let suitableNumber = Math.floor(Math.random() * 894);
+            return suitableNumber;
+        }
+
+        
+        function getRandomPokemon(num) {
+
+          generateCard(num)
+
+          axios
+            .get(`https://pokeapi.co/api/v2/pokemon/${getRandomNumberForPokeAPI()}`)
+            .then(resp => {
+              pokemon = resp.data
+              console.log(pokemon);
+
+              let pokemonName = document.getElementById(`pokemon${num}-name`)
+              let image = document.getElementById(`pokemon${num}-image`)
+              let pokemonType1 = document.getElementById(`pokemon${num}-type1`)
+              let pokemonType2 = document.getElementById(`pokemon${num}-type2`)
+
+              pokemonName.textContent = pokemon.name.capitalize()
+              image.src = pokemon.sprites.front_default
+              pokemonType1.innerHTML = `<span style="font-weight: bold">Type: 1</span> ${(pokemon.types[0] !== undefined) ? pokemon.types[0].type.name.capitalize() : "None"}`
+              pokemonType2.innerHTML = `<span style="font-weight: bold">Type: 2</span> ${(pokemon.types[1] !== undefined) ? pokemon.types[1].type.name.capitalize() : "None"}`
+            })
+        }
+
+
+        function generateCard(num) {
+
+          let card = document.createElement('div')
+          card.classList.add('card', 'col-sm')
+          card.style = "width: 18rem;"
+
+          let img = document.createElement('img')
+          img.style = "width: 286px; height: 286px;"
+          img.classList.add('card-img-top')
+          img.setAttribute('id', `pokemon${num}-image`)
+          img.alt = "Sorry no image was found for this pokemon"
+
+          let cardBody = document.createElement('div')
+          cardBody.classList.add('card-body')
+
+          let h4 = document.createElement('h4')
+          h4.setAttribute('id', `pokemon${num}-name`)
+          h4.classList.add('card-title', 'text-center')
+
+          let p1 = document.createElement('p')
+          p1.setAttribute('id', `pokemon${num}-type1`)
+          p1.classList.add('card-text')
+
+          let p2 = document.createElement('p')
+          p2.setAttribute('id', `pokemon${num}-type2`)
+          p2.classList.add('card-text')
+
+          card.appendChild(img)
+          card.appendChild(cardBody)
+          cardBody.appendChild(h4)
+          cardBody.appendChild(p1)
+          cardBody.appendChild(p2)
+
+          if (num < 3) {
+            document.getElementById('cont-1').appendChild(card)
+          } else {
+            document.getElementById('cont-2').appendChild(card)
+          }
+
+        }
+
+        function getRandomPokemonTeam(num) {
+
+          document.getElementById('cont-1').innerHTML = ''
+          document.getElementById('cont-2').innerHTML = ''
+
+          for (let i = 0; i < num; i++) {
+            getRandomPokemon(i)
+          }
+        }
+
+
+        String.prototype.capitalize = function() {
+          return this.charAt(0).toUpperCase() + this.slice(1)
+        }
+
+
+    </script>
+    </body>
+</html>

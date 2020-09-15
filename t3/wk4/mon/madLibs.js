@@ -41,3 +41,4 @@ function myFunc(event){
   dynamic.textContent = input.value
   input.value = "" 
 }
+

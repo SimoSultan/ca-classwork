@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Toilet Finder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.2.0/papaparse.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+  
+  <div class="container mt-5">
+    <h1>Public Toilet Finder</h1>
+    <p class="lead">What postcode do you need a toilet in?</p>
+  
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Postcode</span>
+      </div>
+      <input id="input" type="text" class="form-control col-3" placeholder="Postcode" aria-label="Postcode" aria-describedby="basic-addon1" maxlength="4">
+      <button type="button" id="submit" class="btn btn-primary mx-3">Submit</button>
+      <button type="button-clear" id="clear" class="btn btn-secondary">Clear</button>
+    </div>
+    <hr>
+    <h2>Results</h2>
+  
+    <ul id="list" class="list-group">
+  
+    </ul>
+  </div>
+
+
+  <script>
+
+    // set the toilets arrays
+    // grab the buttons
+    let toilets = []
+    let submit = document.getElementById('submit')
+    let list = document.getElementById('list')
+    let clear = document.getElementById('clear').addEventListener('click', () => {
+      list.innerHTML = ''
+    })
+
+    // custom function to show the toilets with that suburb
+    function showToilets(postcode, toilets) {
+      // clear the list on new submit
+      list.innerHTML = ''
+      // if postcode is not 4 digits in length, show an error
+      if (postcode.length !== 4) {
+        alert("Please provide a 4 digit number")
+      } 
+      // loop over list of toilets
+      // create list element with bootstrap class
+      // add the innerHTML and append to the UL list
+      else {
+        toilets.forEach(element => {
+          if (element['Postcode'] == postcode) {
+            let li = document.createElement('li')
+            li.classList.add('list-group-item')
+            li.innerHTML = `<p style="margin: 0"><span style="font-weight: bold">Name: </span>${element['Name']}</p><br><p style="margin: 0"><span style="font-weight: bold">Address: </span>${element['Address1']}, ${element['Town']}, ${element['State']}, ${element['Postcode']}</p>`
+            list.appendChild(li)
+          }
+        });
+
+        // if no toilets were found, show that nothing was found
+        if (list.innerHTML == '') {
+          let li = document.createElement('li')
+            li.classList.add('list-group-item')
+            li.innerHTML = `<p class="lead">Sorry, no toilets were found for the postcode: ${postcode}</p>`
+            list.appendChild(li)
+        }
+
+      }
+    }
+
+    // run the function if enter key was pressed
+    function checkKey(e) {
+      e = e || window.event;
+      if (e.keyCode == '13') {
+        showToilets(document.getElementById('input').value, toilets)
+      }
+    }
+
+    Papa.parse("https://data.gov.au/data/dataset/553b3049-2b8b-46a2-95e6-640d7986a8c1/resource/34076296-6692-4e30-b627-67b7c4eb1027/download/toiletmapexport_200702_111356.csv", {
+      download: true,
+      header: true,
+      complete: function (results) {
+          // To see the data that a public toilet has in this API, 
+          // make sure you uncomment this console.log line
+          // and check the browser console!
+          // put the data into the toilets array
+          toilets = results.data
+
+          // add the event listener only once the data has been found
+          submit.addEventListener('click', () => {
+            showToilets(document.getElementById('input').value, toilets)
+          })
+
+          // run the function on enter key, but check which key was pressed first
+          document.onkeydown = checkKey;
+      }
+    });
+
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+</html>
