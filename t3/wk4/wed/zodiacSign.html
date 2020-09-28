@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Signorama</title>
+</head>
+<body>
+    <form id="starForm" onSubmit="myFunc(event)">
+        <legend>Star Sign Check</legend>
+
+        <input type="date" id="when" name="when"
+               value="2020-09-16"
+               min="2020-09-16" max="2021-09-16">
+        <input type="submit" value="Submit">
+    </form> 
+
+    <div id="star-sign"></div>
+    <script src="./getSign.js"></script>
+</body>
+</html>
