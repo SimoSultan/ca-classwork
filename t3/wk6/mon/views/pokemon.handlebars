@@ -1,0 +1,14 @@
+<h1>This is the Pokemon page</h1>
+
+<p>Your team of Pokemon is:</p>
+<ul class="row">
+  {{#each pokemon}}
+  <div class="card col" style="width: 18rem;">
+    <img class="card-img-top" src="https://pokeres.bastionbot.org/images/pokemon/{{this.id}}.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{this.name}}</h5>
+    </div>
+  </div>
+  {{/each}}
+
+</ul>

@@ -34,26 +34,3 @@ module.exports = {
 
 }
 
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
-const port = 3000
-
-// body parser middlewares
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
-app.use(bodyParser.json())
-
-// use means its a middle ware
-app.use(function (req, res, next) {
-	console.log('middle ware running')
-	next()
-})
-
-app.get('/', (req, res)=>{
-	res.send('hello world from express!')
-})
-
-app.listen(port, () => console.log( 'listening on port:' + port))
