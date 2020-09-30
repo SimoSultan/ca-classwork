@@ -45,7 +45,7 @@ ticTacToeBoard[1][2] = "x"
 // NOTE: You don't have to do some ultra l33t ninja code
 // to solve this - you can totally break this into a
 // bunch of IF-ELSE statements & use a lot of code here.
-let validUsernames = [...new Set(takenUsernames.filter(name => name !== "" && name.length > 3 && /[A-Za-z]+/.test(name)))]; // UNWANTED - Eliminates xX_UltraGamer_Xx
+let validUsernames = [...new Set(takenUsernames.filter(name => name !== "" && name.length > 3 && /[A-Za-z]+/.test(name)))]
 console.log(validUsernames)
 
 
@@ -55,7 +55,7 @@ console.log(validUsernames)
 //	are in both arrays.
 //	Delete any users from the arrayAsDatabase array if 
 //	they aren't found in the takenUsernames array.
-
+console.log(arrayAsDatabase);
 for (let i = 0; i < arrayAsDatabase.length; i++) {
 	const element = arrayAsDatabase[i];
 	if (validUsernames.includes(element.username))
@@ -64,6 +64,7 @@ for (let i = 0; i < arrayAsDatabase.length; i++) {
 		arrayAsDatabase.splice(i,1)
 }
 
+console.log(arrayAsDatabase);
 
 
 module.exports = {

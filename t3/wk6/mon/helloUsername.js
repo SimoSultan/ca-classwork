@@ -132,3 +132,5 @@ function getPokemonNumber(string) {
   let num = string.match(/[0-9]{1,3}/g)[1]
   return num
 }
+
+
