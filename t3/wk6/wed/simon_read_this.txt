@@ -1,0 +1,1 @@
+the jokes array question is in the tues folder in wk6 because it has a node modules folder in there I could use instead of making another one
