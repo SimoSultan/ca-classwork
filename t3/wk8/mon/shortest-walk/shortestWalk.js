@@ -28,7 +28,7 @@ function shortestWalk(walk) {
 // let result = shortestWalk(["SOUTH","NORTH", "SOUTH", "SOUTH", "EAST", "WEST","NORTH", "WEST"]) // => ["SOUTH","WEST"]
 
 // let result = shortestWalk(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]) // => ["WEST"]
-let result = shortestWalk(["NORTH", "SOUTH", "EAST", "WEST"]) // => []
-console.log(result);
+// let result = shortestWalk(["NORTH", "SOUTH", "EAST", "WEST"]) // => []
+// console.log(result);
 
 module.exports = shortestWalk
