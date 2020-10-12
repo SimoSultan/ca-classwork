@@ -15,15 +15,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// use means its a middle ware
-app.use(function (req, res, next) {
-  console.log('middle ware running')
-  next()
-})
-
 app.get('/', (req, res)=> {
   // res.send('Hello World! Express is running.')
-  res.render('home');
+  res.send('home');
 })
 
 
